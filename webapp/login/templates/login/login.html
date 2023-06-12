@@ -1,4 +1,4 @@
-{% load static %}
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,9 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tutorial Belajar Django</title>
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 </head>
 
 <body>
@@ -44,7 +41,8 @@
         </div>
     </nav>
 
-    <!--  -->
+
+    {% block content %}
     <section class="vh-100">
         <div class="container py-5 h-100">
             <div class="row d-flex align-items-center justify-content-center h-100">
@@ -95,10 +93,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-
+    {% endblock content %}
 </body>
 
 </html>
