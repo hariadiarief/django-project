@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import FormLogin
 
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
+
 # Create your views here.
 
 
@@ -20,6 +23,7 @@ def login_view(request):
     return render(request, 'login/login.html', {'form': form})
 
 
+@login_required(login_url=settings.LOGIN_URL)
 def dashboard(request):
     context = {}
     return render(request, 'login/dashboard.html', context)
