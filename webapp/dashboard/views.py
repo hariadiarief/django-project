@@ -8,4 +8,4 @@ from django.conf import settings
 @login_required(login_url=settings.LOGIN_URL)
 def dashboard(request):
     context = {}
-    return render(request, 'login/dashboard.html', context)
+    return render(request, 'dashboard.html', context)
