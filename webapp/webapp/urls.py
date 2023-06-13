@@ -16,10 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from about import views
-from blog import views as Blog
-from contact import views as Contact
-from login import views as Login
+# from about import views
+# from blog import views as Blog
+# from contact import views as Contact
+# from login import views as Login
+# from dashboard import views as Dashboard
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +30,5 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('contact/', include('contact.urls')),
     path('login/', include('login.urls')),
+    path('dashboard', include('dashboard.urls'))
 ]

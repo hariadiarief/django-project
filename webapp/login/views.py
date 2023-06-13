@@ -2,9 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import FormLogin
 
-from django.contrib.auth.decorators import login_required
-from django.conf import settings
-
 # Create your views here.
 
 
@@ -18,15 +15,9 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return redirect('/login/dashboard')
+            return redirect('/dashboard')
 
     return render(request, 'login/login.html', {'form': form})
-
-
-@login_required(login_url=settings.LOGIN_URL)
-def dashboard(request):
-    context = {}
-    return render(request, 'login/dashboard.html', context)
 
 
 def logout_view(request):
