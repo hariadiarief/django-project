@@ -131,6 +131,11 @@ STATICFILES_DIRS = [
 ]
 
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+
 LOGIN_URL = '/login'
 # LOGOUT_REDIRECT_URL = '/'
 

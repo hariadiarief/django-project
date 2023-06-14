@@ -1,5 +1,5 @@
 from django.contrib import admin
-from dashboard.models import employee
+from dashboard.models import employee, Book
 
 # Register your models here.
 
@@ -7,6 +7,8 @@ from dashboard.models import employee
 # admin.site.register(employee)
 
 # (option:2) untuk memunculkan custom table
+
+admin.site.register(Book)
 
 
 @admin.register(employee)
