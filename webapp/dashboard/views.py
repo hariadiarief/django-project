@@ -4,6 +4,8 @@ from .models import Book
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+from django.core.paginator import Paginator
+
 
 # Create your views here.
 
@@ -17,7 +19,10 @@ def dashboard(request):
 @login_required
 def book_list(request):
     books = Book.objects.filter(owner=request.user)
-    return render(request, 'dashboard/book_list.html', {'books': books})
+    paginator = Paginator(books, 5)  # Menampilkan 5 buku per halaman
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'dashboard/book_list.html', {'page_obj': page_obj})
 
 
 @login_required
